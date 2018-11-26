@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>ets-kafka-topic-config-manager-core</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <properties>
         <kafka.clients.version>2.1.0</kafka.clients.version>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>de.kaufhof.ets</groupId>
             <artifactId>ets-kafka-topic-config-manager-api</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
