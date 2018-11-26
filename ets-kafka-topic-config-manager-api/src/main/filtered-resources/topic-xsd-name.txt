@@ -1,0 +1,2 @@
+# Attention! If you move this file, you have to update the reference in de.kaufhof.ets.kafkatopicconfigmanager.XmlUnMarshallerProvider as well.
+${topic.xsd.name}

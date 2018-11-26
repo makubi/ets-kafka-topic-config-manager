@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.kaufhof.ets</groupId>
+        <artifactId>ets-poms-library-parent</artifactId>
+        <version>[0.4,1)</version>
+        <relativePath />
+    </parent>
+
+    <artifactId>ets-kafka-topic-config-manager-api</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <properties>
+        <wagon.maven.plugin.version>2.0.0</wagon.maven.plugin.version>
+        <jaxb2.maven.plugin.version>2.3.1</jaxb2.maven.plugin.version>
+
+        <topic.xsd.version>0.0.3</topic.xsd.version>
+        <topic.xsd.name>topic-${topic.xsd.version}.xsd</topic.xsd.name>
+        <topic.xsd.download.dir>${project.build.directory}/xsds</topic.xsd.download.dir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/filtered-resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>${topic.xsd.download.dir}</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>${wagon.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>download-topic-xsd</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://tech.kaufhof.io/xsds/ets-kafka-topic-config-manager</url>
+                            <fromFile>${topic.xsd.name}</fromFile>
+                            <toDir>${topic.xsd.download.dir}</toDir>
+                            <skipIfExists>true</skipIfExists>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>${jaxb2.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <packageName>de.kaufhof.ets.kafkatopicconfigmanager.generated</packageName>
+                    <sources>
+                        <source>${topic.xsd.download.dir}</source>
+                    </sources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <url>https://github.com/Galeria-Kaufhof/ets-kafka-topic-config-manager</url>
+        <connection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-topic-config-manager.git</connection>
+        <developerConnection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-topic-config-manager.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+</project>
