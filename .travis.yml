@@ -3,7 +3,8 @@ sudo: false
 language: scala
 jdk:
 - openjdk8
-- openjdk11
+# Disabled temporarily due to https://github.com/mojohaus/jaxb2-maven-plugin/issues/43
+#- openjdk11
 
 branches:
   only:
