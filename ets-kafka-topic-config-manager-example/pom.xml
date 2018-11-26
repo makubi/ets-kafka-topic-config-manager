@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>ets-kafka-topic-config-manager-example</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <properties>
         <spring.version>5.1.2.RELEASE</spring.version>
@@ -20,7 +20,7 @@
         <dependency>
             <groupId>de.kaufhof.ets</groupId>
             <artifactId>ets-kafka-topic-config-manager-api</artifactId>
-            <version>0.0.1</version>
+            <version>0.1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

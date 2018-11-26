@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>ets-kafka-topic-config-manager-api</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <properties>
         <jaxb.api.version>2.3.1</jaxb.api.version>
