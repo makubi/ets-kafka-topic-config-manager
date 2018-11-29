@@ -106,20 +106,18 @@ You can enable auto apply by supplying `-DautoApply=true` as Java system propert
 
 ## Run docker image
 
-**The image is not published yet**
-
 The Docker container utilizes all JARs in `/opt/topic-configs` and `/opt/config-providers` by adding them to the classpath.
 This allows you to supply topic configs by mounting them to `/opt/topic-configs` and config providers to `/opt/config-providers`.
 
 Example:
 
-`docker run --rm -v /path/to/your/topics/jar:/opt/topic-configs/topics.jar $DOCKER_IMAGE_NAME`
+`docker run --rm -v /path/to/your/topics/jar:/opt/topic-configs/topics.jar galeriakaufhof/ets-kafka-topic-config-manager`
 
 You can also provide Java Opts via the `JAVA_OPTS` env var via `-e JAVA_OPTS=...`.
 
 This allows you to enable auto apply via
 
-`docker run --rm -v /path/to/your/topics/jar:/opt/topic-configs/topics.jar -e JAVA_OPTS="-DautoApply=true" $DOCKER_IMAGE_NAME`
+`docker run --rm -v /path/to/your/topics/jar:/opt/topic-configs/topics.jar -e JAVA_OPTS="-DautoApply=true" galeriakaufhof/ets-kafka-topic-config-manager`
 
 ## License
 
