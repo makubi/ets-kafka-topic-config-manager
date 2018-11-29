@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Galeria-Kaufhof/ets-kafka-topic-config-manager.svg?branch=master)](https://travis-ci.com/Galeria-Kaufhof/ets-kafka-topic-config-manager)
+
 # ETS Kafka Topic Config Manager
 
 Kafka Topic Config Manager helps you manage the topic configurations of your Kafka clusters.
