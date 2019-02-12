@@ -4,21 +4,21 @@
 
     <parent>
         <groupId>de.kaufhof.ets</groupId>
-        <artifactId>ets-poms-aggregator-parent</artifactId>
+        <artifactId>ets-poms-application-parent</artifactId>
         <version>[0.4,1)</version>
         <relativePath />
     </parent>
 
-    <artifactId>ets-kafka-topic-config-manager-aggregator</artifactId>
+    <artifactId>ets-kafka-topic-config-manager-file-folder</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>ets-kafka-topic-config-manager-api</module>
-        <module>ets-kafka-topic-config-manager-core</module>
-        <module>ets-kafka-topic-config-manager-file-folder</module>
-        <module>ets-kafka-topic-config-manager-example</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>de.kaufhof.ets</groupId>
+            <artifactId>ets-kafka-topic-config-manager-api</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <scm>
         <url>https://github.com/Galeria-Kaufhof/ets-kafka-topic-config-manager</url>

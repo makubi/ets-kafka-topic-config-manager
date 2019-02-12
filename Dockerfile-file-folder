@@ -5,6 +5,7 @@ WORKDIR /build
 RUN mvn -B clean package
 RUN mkdir /tmp/ets-kafka-topic-config-manager
 RUN tar -xzf ets-kafka-topic-config-manager-core/target/ets-kafka-topic-config-manager-core-*-ets-assembly-descriptors-application.tar.gz -C /tmp/ets-kafka-topic-config-manager
+RUN tar -xzf ets-kafka-topic-config-manager-file-folder/target/ets-kafka-topic-config-manager-file-folder-*-ets-assembly-descriptors-application.tar.gz -C /tmp/ets-kafka-topic-config-manager
 
 FROM java:jre
 
