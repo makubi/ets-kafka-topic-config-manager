@@ -99,6 +99,53 @@ $ java -cp "manager/*:configs/*" de.kaufhof.ets.kafkatopicconfigmanager.Main
 
 Attention: The `VERSION` must be the same across the dependency you use in your configurations JAR (`de.kaufhof.ets:ets-kafka-topic-config-manager-api`) and the `ets-kafka-topic-config-manager-core` JAR / Docker image you use to manage your topic configurations.
 
+## FolderTopicConfigurationProvider (file-folder dependency)
+
+There is a predefined `TopicConfigurationProvider` that reads files from a folder.
+
+You can use the `file-folder` dependency in your project or use the appropriate Docker Image `galeriakaufhof/ets-kafka-topic-config-manager:file-folder`.
+
+The `FolderTopicConfigurationServiceProvider` expects a Java Property named `file.folder.path` with the configuration folder path and optionally accepts `file.folder.recursive` `true` or `false` (default) that enabled recursive lookup.
+
+Example:
+
+`docker run --rm -e JAVA_OPTS="-Dfile.folder.path=/tmp/topic-configs ..." -v /path/to/your/topics/folder:/tmp/topic-configs galeriakaufhof/ets-kafka-topic-config-manager:file-folder`
+
+### Create topics in your docker-compose setup
+
+You may want to use the Kafka Topic Config Manager to create topics on production system and your local Docker or docker-compose setup.
+
+To accomplish this, use the `file-folder` Docker image, e.g.
+
+```
+version: '2'
+
+services:
+
+  kafka:
+    ...
+    
+  zookeeper:
+    ...
+    
+  kafkatopicconfigmanager:
+    image: galeriakaufhof/ets-kafka-topic-config-manager:file-folder
+    depends_on:
+      - kafka
+    environment:
+      JAVA_OPTS: -Denvironments.0.name=test -Denvironments.0.bootstrapServers=172.16.241.10:9092 -Dfile.folder.path=/tmp/topics -DautoApply=true
+    volumes:
+      - /path/to/topics/folder/:/tmp/topics/
+    ...
+
+...
+```
+
+.
+
+Do not forget to use `test` as the environment in your XML files then.
+
+Example: https://github.com/Galeria-Kaufhof/ets-kafka-clients/blob/master/.travis/docker-compose.yml
 
 ## Auto apply
 
