@@ -3,21 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>de.kaufhof.ets</groupId>
-        <artifactId>ets-poms-library-parent</artifactId>
-        <version>[0.4,1)</version>
-        <relativePath />
+        <groupId>at.makubi.kafka</groupId>
+        <artifactId>ets-kafka-topic-config-manager-aggregator</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>ets-kafka-topic-config-manager-api</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <properties>
-        <jaxb.api.version>2.3.1</jaxb.api.version>
-
-        <wagon.maven.plugin.version>2.0.0</wagon.maven.plugin.version>
-        <jaxb2.maven.plugin.version>2.4</jaxb2.maven.plugin.version>
-
         <topic.xsd.version>0.0.3</topic.xsd.version>
         <topic.xsd.name>topic-${topic.xsd.version}.xsd</topic.xsd.name>
         <topic.xsd.download.dir>${project.build.directory}/xsds</topic.xsd.download.dir>
@@ -31,7 +25,6 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>${jaxb.api.version}</version>
         </dependency>
     </dependencies>
 
@@ -96,9 +89,9 @@
     </build>
 
     <scm>
-        <url>https://github.com/Galeria-Kaufhof/ets-kafka-topic-config-manager</url>
-        <connection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-topic-config-manager.git</connection>
-        <developerConnection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-topic-config-manager.git</developerConnection>
+        <url>https://github.com/makubi/ets-kafka-topic-config-manager</url>
+        <connection>scm:git:git@github.com:makubi/ets-kafka-topic-config-manager.git</connection>
+        <developerConnection>scm:git:git@github.com:makubi/ets-kafka-topic-config-manager.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
